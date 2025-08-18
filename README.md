@@ -29,6 +29,7 @@ Crea una base de datos en MySQL:
 CREATE DATABASE forohub;
 
 En tu archivo application.properties (o application.yml), configura la conexión:
+
 spring.datasource.url=jdbc:mysql://localhost:3306/forohub
 spring.datasource.username=tu_usuario
 spring.datasource.password=tu_password
