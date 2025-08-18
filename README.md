@@ -59,13 +59,21 @@ POST /auth/register
 Inicio de sesión
 Endpoint público que devuelve un token JWT:
 POST /auth/login
+
 {
+
   "username": "tu_usuario",
+  
   "password": "tu_password"
+  
 }
+
 Respuesta esperada:
+
 {
+
   "token": "eyJhbGciOiJIUzI1NiIsInR..."
+  
 }
 
 Acceso a recursos protegidos
