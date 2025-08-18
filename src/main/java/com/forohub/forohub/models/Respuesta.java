@@ -1,5 +1,6 @@
-package com.example.foro.model;
+package com.forohub.forohub.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import lombok.*;
@@ -28,6 +29,7 @@ public class Respuesta {
     // Relaciones
     @ManyToOne
     @JoinColumn(name = "topico_id", nullable = false)
+    @JsonIgnore
     private Topico topico;
 
     @ManyToOne

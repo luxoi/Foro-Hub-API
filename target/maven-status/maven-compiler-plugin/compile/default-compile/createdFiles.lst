@@ -1,0 +1,3 @@
+com\forohub\forohub\ForoHubApplication.class
+com\forohub\forohub\models\Role.class
+com\forohub\forohub\Auth\AuthController.class

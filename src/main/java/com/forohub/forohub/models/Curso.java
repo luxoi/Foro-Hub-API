@@ -1,4 +1,4 @@
-package com.example.foro.model;
+package com.forohub.forohub.models;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
