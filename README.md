@@ -20,7 +20,9 @@ Maven
 Antes de ejecutar el proyecto asegúrate de tener instalado:
 
 Java 17+
+
 Maven
+
 MySQL
 
 🔧 Configuración de la base de datos
@@ -31,10 +33,15 @@ CREATE DATABASE forohub;
 En tu archivo application.properties (o application.yml), configura la conexión:
 
 spring.datasource.url=jdbc:mysql://localhost:3306/forohub
+
 spring.datasource.username=tu_usuario
+
 spring.datasource.password=tu_password
+
 spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
+
 spring.jpa.hibernate.ddl-auto=update
+
 spring.jpa.show-sql=true
 
 ▶️ Ejecución del proyecto
