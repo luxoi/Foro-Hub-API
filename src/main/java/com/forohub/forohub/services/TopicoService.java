@@ -19,7 +19,6 @@ public class TopicoService {
     @Autowired
     private UsuarioRepository usuarioRepository;
 
-
     @Autowired
     private CursoRepository cursoRepository;
 
@@ -51,10 +50,18 @@ public class TopicoService {
         return topicoRepository.save(topico);
     }
 
-//    public Topico actualizar(Long id, Topico topico) {
-//        topico.setId(id);
-//        return topicoRepository.save(topico);
-//    }
+    public Topico actualizar(Long id, Topico datos) {
+        Topico existente = topicoRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Tópico no encontrado"));
+
+        existente.setTitulo(datos.getTitulo());
+        existente.setMensaje(datos.getMensaje());
+        // si quieres, también actualizar curso/autor validando ids
+        existente.setStatus(datos.getStatus());
+        System.out.println("Aquí tu mensaje" + existente.getStatus());
+
+        return topicoRepository.save(existente);
+    }
 
 
 

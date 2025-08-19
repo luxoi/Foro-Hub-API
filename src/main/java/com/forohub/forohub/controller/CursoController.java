@@ -16,7 +16,7 @@ public class CursoController {
 
     private final CursoService cursoService;
 
-    @PostMapping("/crear")
+    @PostMapping("/crear") //endpoint para crear un curso
     public ResponseEntity<Curso> crearCurso(@RequestBody Curso curso) {
         Curso nuevoCurso = cursoService.crearCurso(curso);
         return ResponseEntity.ok(nuevoCurso);

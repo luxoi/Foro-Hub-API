@@ -5,6 +5,7 @@ import com.forohub.forohub.models.Respuesta;
 import com.forohub.forohub.models.Topico;
 import com.forohub.forohub.services.RespuestaService;
 import com.forohub.forohub.services.TopicoService;
+import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,18 +36,15 @@ public class TopicoController {
     }
 
     @PostMapping("/crear")
-    public Topico crear(@RequestBody Topico topico) {
+    public Topico crear(@RequestBody  @Valid Topico topico) {
         return topicoService.guardar(topico);
     }
 
-//    @PutMapping("/{id}")
-//    public ResponseEntity<Topico> actualizar(@PathVariable Long id, @RequestBody Topico topico) {
-//        Topico actualizado = topicoService.actualizar(id, topico);
-//        if (actualizado == null) {
-//            return ResponseEntity.notFound().build();
-//        }
-//        return ResponseEntity.ok(actualizado);
-//    }
+    @PutMapping("/actualizar/{id}")
+    public Topico actualizar(@PathVariable @Valid Long id, @RequestBody Topico topico) {
+        topico.setId(id);
+        return topicoService.actualizar(id, topico);
+    }
 
     @DeleteMapping("/{id}")
     public ResponseEntity<Void> eliminar(@PathVariable Long id) {
@@ -65,7 +63,7 @@ public class TopicoController {
     }
 
     @PostMapping("/{topicoId}/respuestas")
-    public ResponseEntity<Respuesta> crearRespuesta(@PathVariable Long topicoId, @RequestBody Respuesta respuesta) {
+    public ResponseEntity<Respuesta> crearRespuesta(@PathVariable  @Valid Long topicoId, @RequestBody Respuesta respuesta) {
         Topico topico = topicoService.buscarPorId(topicoId)
                 .orElseThrow(() -> new RuntimeException("Tópico no encontrado"));
         respuesta.setTopico(topico);
